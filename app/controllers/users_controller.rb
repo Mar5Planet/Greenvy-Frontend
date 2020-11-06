@@ -35,6 +35,6 @@ class UsersController < ApplicationController
 
 
       def users_params
-        params.require(:user).permit(:username, :password, :email, :footprint, :location, :age, :profile_img, :car_type, :diet, :dishes, :flight, :car_val, :waste, :recycle, :laundry, :greenvy_score)
+        params.require(:user).permit(:username, :password, :email, :footprint, :location, :age, :profile_img, :car_type, :diet, :dishes, :flight, :car_val, :waste, :recycle, :laundry)
       end
 end

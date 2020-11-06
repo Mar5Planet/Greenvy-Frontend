@@ -69,7 +69,6 @@ ActiveRecord::Schema.define(version: 2020_10_28_153826) do
     t.string "waste"
     t.string "recycle"
     t.string "laundry"
-    t.integer "greenvy_score"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

@@ -16,7 +16,6 @@ class CreateUsers < ActiveRecord::Migration[6.0]
       t.string :waste
       t.string :recycle
       t.string :laundry
-      t.integer :greenvy_score
       t.timestamps
     end
   end

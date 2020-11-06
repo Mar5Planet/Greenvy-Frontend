@@ -1,8 +1,8 @@
 class UserEventsController < ApplicationController
     before_action :set_userEvent, only: [:update, :destroy]
     def index
-        userEvents = UserEvent.all 
-        render json: userEvents
+        user_events = UserEvent.all
+        render json: user_events
     end
 
     def create
@@ -35,6 +35,6 @@ class UserEventsController < ApplicationController
 
 
       def userEvents_params
-        params.require(:userEvent).permit(:user_id, :event_id, :status)
+        params.require(:user_event).permit(:user_id, :event_id, :status)
       end
 end

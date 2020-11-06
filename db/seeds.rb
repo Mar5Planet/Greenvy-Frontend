@@ -22,7 +22,6 @@ User.create(
     waste: "b",
     recycle: "a",
     laundry: "b",
-    greenvy_score: 0,
 )
 
 User.create(
@@ -41,7 +40,6 @@ User.create(
     waste: "c",
     recycle: "b",
     laundry: "c",
-    greenvy_score: 0,
 )
 
 Event.create(
@@ -53,6 +51,30 @@ Event.create(
     image_url: "https://www.creativenano.gr/wp-content/uploads/2019/01/cnano_natural_environment.jpg"
 )
 
+Event.create(
+    title: "event2",
+    description: "this is an environmental event",
+    greenvy_score: 5,
+    organizer_id: 2,
+    location: "Los Angeles, California",
+    image_url: "https://www.brother.is/-/media/images/brother-nordics/blog/header-images/10-ways-to-help-environmental-blog-header-no-text.jpg?mw=1170&hash=3A2D5CFA29A6F352398A1EED0033E45D9DC7AC1D"
+)
+Event.create(
+    title: "event2",
+    description: "this is an environmental event",
+    greenvy_score: 5,
+    organizer_id: 2,
+    location: "Los Angeles, California",
+    image_url: "https://www.brother.is/-/media/images/brother-nordics/blog/header-images/10-ways-to-help-environmental-blog-header-no-text.jpg?mw=1170&hash=3A2D5CFA29A6F352398A1EED0033E45D9DC7AC1D"
+)
+Event.create(
+    title: "event2",
+    description: "this is an environmental event",
+    greenvy_score: 5,
+    organizer_id: 2,
+    location: "Los Angeles, California",
+    image_url: "https://www.brother.is/-/media/images/brother-nordics/blog/header-images/10-ways-to-help-environmental-blog-header-no-text.jpg?mw=1170&hash=3A2D5CFA29A6F352398A1EED0033E45D9DC7AC1D"
+)
 Event.create(
     title: "event2",
     description: "this is an environmental event",
@@ -114,5 +136,5 @@ UserEvent.create(
 UserEvent.create(
     user_id: 2,
     event_id: 1,
-    status: "complete"
+    status: "incomplete"
 )
