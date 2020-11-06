@@ -47,3 +47,14 @@ label{
   height: 50px;
   border-radius: 100%;
 }
+
+/* Home Page */
+.home-video {
+  overflow: hidden;
+  margin: 5%;
+
+}
+
+.home-video video{
+  position: relative;
+}

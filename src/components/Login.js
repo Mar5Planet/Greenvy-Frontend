@@ -7,17 +7,17 @@ function Login(props) {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const [failed, setFailed] = useState(false)
+
     const findUser = (email, password) => {
         let userCheck = true
         props.users.map(user => {
             if (user.email === email && user.password === password) {
                 props.setUser(user)
-                userCheck = false
+                userCheck = false 
             } 
         })
         setFailed(userCheck)
-
-
+        
     }
     return (
         <Form onSubmit={(e) => {
@@ -39,7 +39,7 @@ function Login(props) {
         <Form.Group controlId="formBasicCheckbox">
             <Form.Check type="checkbox" label="Remember Me" />
         </Form.Group>
-        <Link to={failed? "/login" : "/"}>
+        <Link to={failed? "/login" : "/dashboard"}>
         <Button onMouseDown={() => findUser(email, password)} variant="primary" type="submit">
             Submit
         </Button>

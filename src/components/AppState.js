@@ -8,7 +8,6 @@ class CarbonFootprintCalculator {
             password: '',
             location: '',
             email: '',
-            greenvyScore: 0,
             age: 0,
             total: 0,
             runningTotal: 0,

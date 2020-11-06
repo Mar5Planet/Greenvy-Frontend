@@ -1,7 +1,7 @@
 import React from 'react';
 import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
-import GreenvyLogo from '../images/greenlogo.png';
+import GreenvyLogo from '../public/images/greenlogo.png';
 import { Link } from 'react-router-dom';
 import Button from 'react-bootstrap/Button'
 
@@ -19,8 +19,8 @@ function NavgBar(props) {
       <Navbar.Collapse id="basic-navbar-nav">
       <Nav className="ml-auto">
       <Link to="/dashboard"><p className="nav-link">Dashboard</p></Link>
-      <Link to="/"><p className="nav-link">Events</p></Link>
-      <Link to="/"><p className="nav-link">Profile</p></Link>
+      <Link to="/events"><p className="nav-link">Events</p></Link>
+      <Link to={`/profile/${props.user.id}`}><p className="nav-link">Profile</p></Link>
       <div className="nav-user-info nav-link">
         <img src={props.user.profile_img} alt="user-img"/>
         <p>{props.user.username}</p>

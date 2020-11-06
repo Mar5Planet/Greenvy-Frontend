@@ -48,6 +48,7 @@ const CarbonFootprint = observer(class CarbonFootprint extends Component{
     handleRecycledItems = items => this.props.store.setRecycledItems(items)
     createUser = storeObj => {
         let user = {}
+        user.id = (this.props.users.length +1) 
         user.age = storeObj.age
         user.car_type = storeObj.carType
         user.car_val = storeObj.carVal
@@ -56,7 +57,6 @@ const CarbonFootprint = observer(class CarbonFootprint extends Component{
         user.email = storeObj.email
         user.flight = storeObj.flight
         user.footprint = storeObj.total
-        user.greenvy_score = storeObj.greenvyScore
         user.laundry = storeObj.laundry
         user.location = storeObj.location
         user.password = storeObj.password
@@ -73,8 +73,9 @@ const CarbonFootprint = observer(class CarbonFootprint extends Component{
         }
         else {
             console.log('create me')
-            // this.props.createUser(user)
-            // this.props.setUser(user)
+            this.props.createUser(user)
+            this.props.setUser(user)
+            console.log(user)
         }
         
     
@@ -268,7 +269,7 @@ const CarbonFootprint = observer(class CarbonFootprint extends Component{
                         <Option value="c">To a another continent</Option>
                     </Select>
                 </FormItem>
-                <Link to={this.props.user? "/" : '/signup'}>
+                <Link to={this.props.user? "/dashboard" : '/signup'}>
                 <input onMouseDown={() => {
                     store.calculateTotal()
                     this.createUser(store)}
