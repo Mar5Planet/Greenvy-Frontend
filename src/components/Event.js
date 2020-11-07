@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link, Route, useRouteMatch } from 'react-router-dom';
 import Comment from './Comment';
+import CommentForm from './CommentForm'
 
 function Event(props) {
     const [events] = useState(props.events)
@@ -73,6 +74,7 @@ function Event(props) {
         <p>{event[0].description}</p>
         <div className="comments">
             <h1>Comments</h1>
+            <CommentForm createComment={props.createComment} event={event[0]} user={props.user}/>
             {renderComments()}
         </div>
   

@@ -101,7 +101,7 @@ function Main() {
         .then(res => res.json())
         .then(data => setUserEvents(newArr))
         .catch(err => console.log(err))
-}
+    }
 
     const createUser = user => {
         setLoggedInUser(user)
@@ -137,6 +137,71 @@ function Main() {
         .then(res => res.json())
         .then(ev => setEvents([...events, ev]))
 
+    }
+
+    const createComment = comment => {
+        let options = {
+            method: "POST",
+            headers: {
+                "content-type": "application/json",
+                "accepts": "application/json"
+            },
+            body: JSON.stringify({
+                comment
+            })
+        }
+        fetch(commentsUrl, options)
+        .then(res => res.json())
+        .then(comm => setComments([...comments, comm]))
+
+    }
+
+    const createUserJoin = (follower, following) => {
+        let options = {
+            method: "POST",
+            headers: {
+                "content-type": "application/json",
+                "accepts": "application/json"
+            },
+            body: JSON.stringify({
+                "follower_id": follower.id,
+                "followed_id": following.id
+            })
+        }
+        fetch(userJoinsUrl, options)
+        .then(res => res.json())
+        .then(userJoin => setUserJoins([...userJoins, userJoin]))
+        console.log(userJoins)
+    }
+
+    const deleteUserJoins = (followerId, followedId) => {
+        let foundUserJoin
+        userJoins.map(userJoin => {
+            if (userJoin.follower_id === followerId && userJoin.followed_id === followedId) {
+                foundUserJoin = userJoin
+            } 
+        })
+
+        let index = userJoins.findIndex(userJoins => userJoins.id === foundUserJoin.id)
+        let newArr = userJoins
+        console.log(userJoins)
+        console.log(newArr)
+        console.log(foundUserJoin)
+        newArr.splice(index, 1)
+        let options = {
+            method: "DELETE",
+            headers: {
+                "content-type": "application/json",
+                "accepts": "application/json"
+            },
+            body: JSON.stringify({
+                foundUserJoin
+            })
+        }
+        fetch(userJoinsUrl+foundUserJoin.id, options)
+        .then(res => res.json())
+        .then(data => setUserJoins(newArr))
+        .catch(err => console.log(err))
     }
 
     const patchUserEvent = userEvent => {
@@ -192,8 +257,8 @@ function Main() {
             <Route path="/events" exact>
                 {loggedInUser? <EventsContainer createEvent={createEvent} leave={deleteUserEvents} join={createUserEvents} events={events} userEvents={userEvents} user={loggedInUser} /> : null}
             </Route>
-            <Route path={`/events/:id`} render={(matchProps) =><Event {...matchProps} comments={comments} user={loggedInUser} users={users} events={events}/>} />
-            <Route path={`/profile/:id`} render={(matchProps) =><Profile {...matchProps} user={loggedInUser} users={users} userJoins={userJoins} userEvents={userEvents}/>} />
+            <Route path={`/events/:id`} render={(matchProps) =><Event {...matchProps} createComment={createComment} comments={comments} user={loggedInUser} users={users} events={events}/>} />
+            <Route path={`/profile/:id`} render={(matchProps) =><Profile {...matchProps} createUserJoin={createUserJoin} deleteUserJoins={deleteUserJoins} user={loggedInUser} users={users} userJoins={userJoins} userEvents={userEvents}/>} />
   
 
         </Switch>

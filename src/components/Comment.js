@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 function Comment(props) {
+    
     return(
         <div className="comment">
             <Link to={`/profile/${props.comment.user.id}`}>

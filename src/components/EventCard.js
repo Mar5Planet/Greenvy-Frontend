@@ -35,13 +35,11 @@ function EventCard(props) {
     }
 
     const joinEvent = () => {
-        console.log(user.id, props.event.id)
         props.join(user.id, props.event.id)
     }
 
     const leaveEvent = () => {
-        console.log(user.id, props.event.id)
-        props.leave(user.id, props.event.id)
+         props.leave(user.id, props.event.id)
     }
 
     useEffect(() => {findUserEvents()
