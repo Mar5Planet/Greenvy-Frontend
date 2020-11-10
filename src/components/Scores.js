@@ -10,14 +10,11 @@ function Scores(props) {
        let userEvents = props.userEvents.filter(userEvent => userEvent.user_id === props.user.id)
        setPendingEvents(userEvents.filter(userEvent => userEvent.status === "incomplete"))
        setCompleteEvents(userEvents.filter(userEvent => userEvent.status === "complete"))
-
-       console.log(pendingEvents)
-
     }
 
 
     const footPrintImg = () => {
-        if (props.user.footprint <= 120) {
+        if (props.user.footprint <= 100) {
             return 'https://images.pexels.com/photos/931007/pexels-photo-931007.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940';
         }
         else {
@@ -54,7 +51,7 @@ function Scores(props) {
                 <Card.Title>Carbon Footprint</Card.Title>
                 <Card.Title>{props.user.footprint}</Card.Title>
                     <Card.Text>
-                    Your carbon footprint is lower than 
+                    Your footprint is {props.user.footprint} lbs Co2/day. The average footprint is 97.
                     </Card.Text>
                 </Card.Body>
             </Card>
@@ -65,7 +62,7 @@ function Scores(props) {
                 <Card.Title>Greenvy Score</Card.Title>
                 <Card.Title>{greenvyScore()}</Card.Title>
                     <Card.Text>
-                    Increase your score by particpating in community events.
+                     Community events engagement score.
                     </Card.Text>
                 </Card.Body>
             </Card>
@@ -76,7 +73,7 @@ function Scores(props) {
                 <Card.Title>Pending Points</Card.Title>
                 <Card.Title>{pendingPoints()}</Card.Title>
                     <Card.Text>
-                    Increase your score by particpating in community events.
+                    Pendind points to be approved by event organizer.
                     </Card.Text>
                 </Card.Body>
             </Card>

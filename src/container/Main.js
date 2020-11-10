@@ -193,10 +193,7 @@ function Main() {
             headers: {
                 "content-type": "application/json",
                 "accepts": "application/json"
-            },
-            body: JSON.stringify({
-                foundUserJoin
-            })
+            }
         }
         fetch(userJoinsUrl+foundUserJoin.id, options)
         .then(res => res.json())
@@ -237,6 +234,7 @@ function Main() {
         fetchUserJoins()
         fetchComments()} , []);
 
+        console.log(comments)
     return (
         <>
         <NavgBar user={loggedInUser} logout={() => setLoggedInUser('')}/>
@@ -252,7 +250,7 @@ function Main() {
              <Login users={users} setUser={setLoggedInUser}/>
             </Route>
             <Route path="/dashboard" exact>
-                {loggedInUser? <Dashboard changeStatus={setUserEventsStatus} approvePoints={patchUserEvent} userEvents={userEvents} events={events} user={loggedInUser}/> : null}
+                {loggedInUser? <Dashboard changeStatus={setUserEventsStatus} approvePoints={patchUserEvent} userJoins={userJoins} userEvents={userEvents} events={events} user={loggedInUser}/> : null}
             </Route>
             <Route path="/events" exact>
                 {loggedInUser? <EventsContainer createEvent={createEvent} leave={deleteUserEvents} join={createUserEvents} events={events} userEvents={userEvents} user={loggedInUser} /> : null}

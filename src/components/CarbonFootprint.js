@@ -2,9 +2,10 @@ import React, {Component} from 'react'
 import {observer} from 'mobx-react'
 import { Form, Select, Radio} from 'antd';
 import { Checkbox } from 'antd';
-import { Slider, InputNumber} from 'antd';
+import { Slider, InputNumber, Input} from 'antd';
 import '../App.css';
 import { Link } from 'react-router-dom';
+import Button from 'react-bootstrap/Button';
 
 const CheckboxGroup = Checkbox.Group;
 const FormItem = Form.Item;
@@ -91,42 +92,57 @@ const CarbonFootprint = observer(class CarbonFootprint extends Component{
         }
         const recycleOptions = ['Glass', 'Plastic', 'Paper', 'Aluminum', 'Steel', 'Food waste'];
         return (
+            <div className="signup-page">
+        
+            <div className="signup-form">
+                <h1 style={{color: "white", marginBottom: "5%"}}>User Signup</h1>
             <Form onSubmit={(e) => {
+                store = ''
                 console.log(store)
                 console.log('submitted')
                 }} layout="inline">  
+                <div className="form-group">
                 <label>Username:</label>
-                <input type="text"                        
+                <Input type="text"                        
                 value={store.username}
                 onChange={e => store.setUsername(e.target.value)}/>
+                </div>
 
+                <div className="form-group">
                 <label>Location:</label>
-                <input type="text"                        
+                <Input type="text"                        
                 value={store.location}
                 onChange={e => store.setLocation(e.target.value)}/>
+                </div>
 
+                <div className="form-group">
                 <label>Email:</label>
-                <input type="email"
+                <Input type="email"
                 value={store.email}
                 onChange={e => store.setEmail(e.target.value)} />
+                </div>
+
+                <div className="form-group">
                 <label>Password:</label>
-                <input type="password"
+                <Input type="password"
                 value={store.password}
                 onChange={e => store.setPassword(e.target.value)} />
-                
+                </div>
+
+                <div className="form-group">
                 <label>Age:</label>
-                <input type="number"
+                <Input type="number"
                 value={store.age}
                 onChange={(e) => store.setAge(e.target.value)}/>
-                
+                </div>
+
+                <div className="form-group">
                 <label>Profile Photo:</label>
-                <input type="text"                        
+                <Input type="text"                        
                 value={store.profileImg}
                 onChange={e => store.setProfileImg(e.target.value)}/>
-
-                <label className="form-title" htmlFor="form-title">
-                    Calculate your carbon footprint points using the form below
-                </label><hr/><br/>
+                </div>
+                <h1 style={{color: "white", margin: "10% 0"}}>Calculate Carbon Footprint</h1>
                 <FormItem>
                     <label>Members of household:</label>
                     <InputNumber
@@ -270,13 +286,16 @@ const CarbonFootprint = observer(class CarbonFootprint extends Component{
                     </Select>
                 </FormItem>
                 <Link to={this.props.user? "/dashboard" : '/signup'}>
-                <input onMouseDown={() => {
+                <Button variant="info" onMouseDown={() => {
                     store.calculateTotal()
                     this.createUser(store)}
-                } type="submit"/> 
+                } type="submit">
+                    Create User</Button> 
 
                 </Link>
             </Form>
+            </div>
+            </div>
         )
     }
     

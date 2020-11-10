@@ -19,11 +19,11 @@ function DashboardEvents(props) {
     }
 
     const renderIncompleteEvents = () => {
-    return incompleteEvents.map(event => <Link to={`/events/${event.event.id}`}><div><h2>{event.event.title}</h2><p>{event.event.greenvy_score}</p></div></Link>)
+    return incompleteEvents.map(event => <Link to={`/events/${event.event.id}`}><div><h2>{event.event.title}</h2><p>{event.event.greenvy_score} Points</p></div></Link>)
     }
 
     const rendercompleteEvents = () => {
-        return completeEvents.map(event => <Link to={`/events/${event.event.id}`}><div><h2>{event.event.title}</h2><p>{event.event.greenvy_score}</p></div></Link>)
+        return completeEvents.map(event => <Link to={`/events/${event.event.id}`}><div><h2>{event.event.title}</h2><p>{event.event.greenvy_score} Points</p></div></Link>)
      }
 
     useEffect(() => { findUserEvents()

@@ -17,19 +17,18 @@ function NavgBar(props) {
       <> 
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav">
-      <Nav className="ml-auto">
+      <Nav >
       <Link to="/dashboard"><p className="nav-link">Dashboard</p></Link>
       <Link to="/events"><p className="nav-link">Events</p></Link>
-      <Link to={`/profile/${props.user.id}`}><p className="nav-link">Profile</p></Link>
-      <div className="nav-user-info nav-link">
-        <img src={props.user.profile_img} alt="user-img"/>
-        <p>{props.user.username}</p>
-      </div>
+      <Link to={`/profile/${props.user.id}`}>      
+        <img className="nav-user-info-img nav-user-info nav-link" src={props.user.profile_img} alt="user-img"/>
+    </Link>
+
       <Link to="/"><Button onClick={props.logout} variant="outline-light"> Logout </Button></Link>
     </Nav>
     </Navbar.Collapse>
       </>
-      : <> <Link to="/login"><Button variant="info"> Login </Button></Link> <Link to="/signup"><Button variant="warning"> Sign Up </Button></Link></>}
+      : <> <Nav className="home-nav"><Link to="/login"><Button variant="info" className="homepage-btn"> Login </Button></Link> <Link to="/signup"><Button variant="warning" className="homepage-btn"> Sign Up </Button></Link></Nav></>}
 </Navbar>
     )
 }

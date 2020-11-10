@@ -43,7 +43,7 @@ function EventCard(props) {
     }
 
     useEffect(() => {findUserEvents()
-    setUserJoined(checkUserEvent())}, []);
+    setUserJoined(checkUserEvent())}, [userEvents]);
 
     return(
         <Card style={{ width: '18rem', display: 'inline-block' }}>

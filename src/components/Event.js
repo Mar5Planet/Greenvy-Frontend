@@ -1,90 +1,101 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { Link, Route, useRouteMatch } from 'react-router-dom';
 import Comment from './Comment';
 import CommentForm from './CommentForm'
 
-function Event(props) {
-    const [events] = useState(props.events)
-    const [event, setEvent] = useState(false)
-    const [organizer, setOrganizer] = useState('')
-    const [users, setUsers] = useState(props.users)
-    const [eventComments, setEventComments] = useState('')
-    
-    const findOrganizer = userId => {
-        if (users) {
-            setOrganizer(users.find(user => user.id === userId))
-        }
-    }
-
-    const findEventComments = () => {
-        let matchingComments
-        if (event) {
-             setEventComments(props.comments.filter(comment => comment.event_id === event[0].id))
-        }
-
-        console.log(eventComments)
-        
-    }
-
-    const renderComments = () => {
-        if (eventComments) {
-            return eventComments.map(comment => <Comment key={comment.id} comment={comment}/>)
-        }
-        
-    }
-
-    const findAndSetOrganizer = () => {
-        if (event) {
-            findOrganizer(event[0].organizer_id)
-        }
-    }
-    
-    const findEventById = (eventId) => {
-        if (events) {
-            setEvent(events.filter(event => event.id === parseInt(eventId)))
-        }
-
-        if (event) {
-            findOrganizer(event[0].organizer_id)
-        }
-        
+class Event extends React.Component {
+    state = {
+        events: this.props.events,
+        event: false,
+        organizer: '',
+        users: this.props.users,
+        eventComments: ''
     }
 
     
+    findOrganizer = userId => {
+        let foundOrganizer = this.state.users.find(user => user.id === userId) 
+        if (this.state.users) {
+            this.setState({
+                organizer: foundOrganizer})
+        }
+    }
 
-    useEffect(() => {findEventById(props.match.params.id)
-    findAndSetOrganizer()
-    findEventComments()}, [event]);
-    return (
-        <>
-        {event? 
-        <div className="event-page">
-        {console.log(event, organizer)}
-        <img src={event[0].image_url} alt="event-img" />
-        <h1>{event[0].title}</h1>
-        <h3>{event[0].location}</h3>
-        <div style={{width: '20%', border: '3px solid black'}} className="event-organizer">
-            <h3>Organizer:</h3>
-            <Link to={`/profile/${organizer.id}`}>
-            <img style={{width: '20%'}} src={organizer.profile_img} alt="organizer-img" />
-            <h4>{organizer.username}</h4>
-            </Link>
-        </div>
-        <label></label>
-        <p>{event[0].description}</p>
-        <div className="comments">
-            <h1>Comments</h1>
-            <CommentForm createComment={props.createComment} event={event[0]} user={props.user}/>
-            {renderComments()}
-        </div>
+
+
+    findEventComments = () => {
+             this.setState({ 
+                 eventComments: this.props.comments.filter(comment => comment.event_id === this.state.event[0].id) })
+        
+    }
+
+    renderComments = () => {
+            let comments = this.props.comments.filter(comment => comment.event_id === this.state.event[0].id) 
+            return comments.reverse().map(comment => <Comment key={comment.id} comment={comment}/>)
+
+        
+    }
+
+   findAndSetOrganizer = () => {
+        if (this.state.event) {
+            this.findOrganizer(this.state.event[0].organizer_id)
+        }
+    }
+    
+    findEventById = (eventId) => {
+        let eventFound = this.state.events.filter(event => event.id === parseInt(eventId))
+        if (this.state.events) {
+            this.setState({
+                event: eventFound
+            })
+        }
+        
+    }
+
+    
+    componentDidMount() {
+        this.findEventById(this.props.match.params.id)
+        this.findAndSetOrganizer()
+    }
+
+    componentDidUpdate(prevProps, prevState) {
+        if (this.state.event !== prevState.event) {
+            this.findEventComments()
+            this.findOrganizer(this.state.event[0].organizer_id)
+        }
+    }
+
+  render() {
+      return (
+          <>
+          {console.log(this.state.eventComments)}
+          {this.state.event? 
+          <div className="event-page">
+          <img src={this.state.event[0].image_url} alt="event-img" />
+          <h1>{this.state.event[0].title}</h1>
+          <h3>{this.state.event[0].location}</h3>
+          <div style={{width: '20%', border: '3px solid black'}} className="event-organizer">
+              <h3>Organizer:</h3>
+              <Link to={`/profile/${this.state.organizer.id}`}>
+              <img style={{width: '20%'}} src={this.state.organizer.profile_img} alt="organizer-img" />
+              <h4>{this.state.organizer.username}</h4>
+              </Link>
+          </div>
+          <label></label>
+          <p>{this.state.event[0].description}</p>
+          <div className="comments">
+              <h1>Comments</h1>
+              <CommentForm createComment={this.props.createComment} event={this.state.event[0]} user={this.props.user}/>
+              {this.renderComments()}
+          </div>
+    
+          </div>
+          : null
+          }
+          </>
   
-        </div>
-        : null
-        }
-        </>
-
-    )
-    
+      )
+  }
 }
 
 export default Event;

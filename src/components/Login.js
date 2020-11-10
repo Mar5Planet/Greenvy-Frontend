@@ -17,9 +17,11 @@ function Login(props) {
             } 
         })
         setFailed(userCheck)
-        
+
     }
     return (
+        <div className="login-page">
+        <h2>User Login</h2>
         <Form onSubmit={(e) => {
             e.preventDefault()
         }}>
@@ -45,6 +47,7 @@ function Login(props) {
         </Button>
         </Link>
         </Form>
+        </div>
 
     )
 }

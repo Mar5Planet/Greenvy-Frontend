@@ -1,7 +1,8 @@
 @import '~antd/dist/antd.css';
+@import url('https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 
-body{
-  font-family: sans-serif;
+* {
+  font-family: 'Karla', sans-serif;
 }
 .title{
   text-align: left;
@@ -41,20 +42,159 @@ label{
   margin: 0 10% !important;
 }
 
+.home-nav {
+  width: 200px !important;
+}
+.navbar-nav {
+  position: absolute;
+  width: 400px;
+  right: 2%;
+}
 
-.nav-user-info img {
-  width: 50px;
-  height: 50px;
+.navbar-nav a {
+  margin-left: 6%;
+}
+
+.homepage-btn {
+  margin-left: 10px;
+}
+
+.nav-user-info-img {
+  width: 50px !important;
+  height: 50px !important;
   border-radius: 100%;
 }
 
 /* Home Page */
-.home-video {
-  overflow: hidden;
-  margin: 5%;
 
+
+.home-gif  {
+  height: 1000px;
+  background:  url(./public/videos/earth2.gif);
+  background-size: cover;
 }
 
-.home-video video{
-  position: relative;
+.btn-info {
+  background-color: #e7f0c3 !important;
+  color: black !important;
+}
+
+
+
+.btn-warning {
+  background-color: #f0cf85 !important;
+}
+
+/* Event */
+.comment {
+  margin:4% 0;
+}
+
+.comment img {
+  width: 40px;
+  height: 40px;
+  border-radius: 100%;
+  display: inline-block;
+}
+
+.comment h4 {
+  margin-left: 5px;
+  display: inline-block;
+}
+
+
+/* dashboard  */
+.friend-activity img {
+  width: 40px;
+  height: 40px;
+  border-radius: 100%;
+  display: inline-block;
+  margin-right: 10px;
+}
+
+.friend-activity p {
+  display: inline-block;
+}
+
+/* profile  */
+
+.user-profile img {
+  width: 100px;
+  height: 100px;
+  border-radius: 100%;
+  display: block;
+}
+
+.user-scores {
+  margin: auto;
+}
+
+.user-scores div {
+  display: inline-block;
+  width: 150px;
+  height: 150px;
+  border-radius: 40px !important;
+  text-align: center;
+  place-items: center;
+  padding: 2%;
+  margin: 2%;
+}
+
+.user-scores-footprint {
+  background: url('https://image.freepik.com/free-photo/sunny-defocused-green-nature-background-abstract-bokeh-effect-es-element-your-design_211682-265.jpg');
+  background-repeat: no-repeat;
+  border-color: transparent !important;
+  color: black;
+}
+
+.user-scores-greenvy {
+  background: url('https://images.unsplash.com/photo-1568832359672-e36cf5d74f54?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80');
+  background-repeat: no-repeat;
+  border-color: transparent !important;
+  color: white;
+}
+
+/* Login */
+.login-page {
+  width: 30%;
+  margin: 10% auto;;
+}
+
+.login-page h2 {
+  margin: 5% auto;
+  text-align: center;
+}
+
+/* Signup  */
+.signup-page {
+width: 100%;
+height: 100%;
+margin: 4% auto;
+}
+
+.signup-form {
+  background-color: #32afa9;
+  width: 40%;
+  padding: 5%;
+  margin: auto;
+}
+
+.signup-form input {
+  margin: 0 4%;
+}
+
+.form-group {
+  display: block;
+}
+
+.ant-form-item-control-input-content {
+  margin: 3% 0 !important;
+}
+
+.ant-form-inline .ant-form-item {
+  flex: inherit !important;
+}
+
+.ant-input {
+  width: 160px;
 }
