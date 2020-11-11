@@ -26,20 +26,38 @@ function DashboardEvents(props) {
         return completeEvents.map(event => <Link to={`/events/${event.event.id}`}><div><h2>{event.event.title}</h2><p>{event.event.greenvy_score} Points</p></div></Link>)
      }
 
+    const checkUpcomingEvents = () => {
+        if (renderIncompleteEvents().length === 0) {
+            return false
+        }
+        else { return true }
+    }
+
+    const checkCompletedEvents = () => {
+        if (rendercompleteEvents().length === 0) {
+            return false
+        }
+        else { return true }
+    }
+
     useEffect(() => { findUserEvents()
     setEventType()} , [incompleteEvents]);
 
     return(
         <>
-        {console.log(userEvents)}
+        {checkUpcomingEvents()? 
         <div className="upcoming-events">
             <h1>Upcoming Events</h1>
             {renderIncompleteEvents()}
-        </div>
+        </div> : ''
+        }
+
+        {checkCompletedEvents()?
         <div className="completed-events">
             <h1> Completed Events </h1>
             {rendercompleteEvents()}
-        </div>
+        </div> : ''
+        }
         
         </>
     )

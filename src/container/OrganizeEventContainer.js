@@ -16,11 +16,24 @@ function OrganizeEventContainer(props) {
             return events.map(event => <OrganizeEvent changeStatus={props.changeStatus} key={event.id} approvePoints={props.approvePoints} userEvent={event}/>)
         }
     }
+
+    const checkEvents = () => {
+        if (renderEvents()) {
+            if (renderEvents().length === 0) {
+                return false
+            } else {
+                return true
+            }
+        }
+    }
+
     return (
+        <>
+        {checkEvents()?
         <>
         <h1> Greenvy points to be approved</h1>
         {renderEvents()}
-
+        </> : ''}
         </>
     )
 }

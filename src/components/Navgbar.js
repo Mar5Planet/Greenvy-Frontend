@@ -7,9 +7,9 @@ import Button from 'react-bootstrap/Button'
 
 function NavgBar(props) {
     return(
-        <Navbar style={{backgroundColor: "#212121"}} expand="lg">
+        <Navbar style={{backgroundColor: "#d3d4e1", padding: "0.5% 2%", display: "sticky"}} expand="lg">
   <Navbar.Brand>
-    <img style={{width: "55%"}} src={GreenvyLogo} alt="greenvy-img"/>
+    <img style={{width: "65%"}} src={GreenvyLogo} alt="greenvy-img"/>
   </Navbar.Brand>
     
       
@@ -24,7 +24,7 @@ function NavgBar(props) {
         <img className="nav-user-info-img nav-user-info nav-link" src={props.user.profile_img} alt="user-img"/>
     </Link>
 
-      <Link to="/"><Button onClick={props.logout} variant="outline-light"> Logout </Button></Link>
+      <Link to="/"><Button onClick={props.logout} variant="outline-dark"> Logout </Button></Link>
     </Nav>
     </Navbar.Collapse>
       </>

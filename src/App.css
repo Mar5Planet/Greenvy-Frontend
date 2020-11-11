@@ -1,5 +1,6 @@
 @import '~antd/dist/antd.css';
 @import url('https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Gloria+Hallelujah&display=swap');
 
 * {
   font-family: 'Karla', sans-serif;
@@ -37,22 +38,35 @@ label{
 
 /* Navbar */
 .nav-link {
-  color: white !important;
-  height: 60px !important;
-  margin: 0 10% !important;
+  font-size: 2rem;
+  color: black !important;
+  margin: 0 2% !important;
 }
 
 .home-nav {
-  width: 200px !important;
+  width: 250px !important;
 }
 .navbar-nav {
   position: absolute;
-  width: 400px;
+  width: 60%;
   right: 2%;
 }
 
+.navbar-expand-lg .navbar-nav .nav-link 
 .navbar-nav a {
-  margin-left: 6%;
+  padding: 0 !important;
+ }
+
+ .nav-link {
+   padding: 0 !important;
+ }
+
+ .nav-link .btn-outline-dark {
+  height: 80% !important;
+ }
+
+.navbar-nav a {
+  margin-left: 13%;
 }
 
 .homepage-btn {
@@ -66,23 +80,23 @@ label{
 }
 
 /* Home Page */
-
-
 .home-gif  {
   height: 1000px;
-  background:  url(./public/videos/earth2.gif);
+  background: url(./public/videos/earth2.gif);
   background-size: cover;
 }
 
 .btn-info {
-  background-color: #e7f0c3 !important;
+  background-color: #F5E9DD !important;
+  border-color: transparent !important;
   color: black !important;
 }
 
 
 
 .btn-warning {
-  background-color: #f0cf85 !important;
+  border-color: transparent !important;
+  background-color: #BDC1AC !important;
 }
 
 /* Event */
@@ -104,6 +118,20 @@ label{
 
 
 /* dashboard  */
+.dashboard {
+margin: 4% 4%;
+text-align: center;
+}
+
+.dashboard h1 {
+  font-family: 'Gloria Hallelujah', cursive;
+  display: inline-block;
+}
+
+.dashboard-gif {
+  width: 15%;
+}
+
 .friend-activity img {
   width: 40px;
   height: 40px;
@@ -117,6 +145,12 @@ label{
 }
 
 /* profile  */
+.dropdown-img {
+  width: 20px;
+  height: 20px;
+  border-radius: 100%;
+  margin-right: 10px;
+}
 
 .user-profile img {
   width: 100px;
@@ -127,6 +161,12 @@ label{
 
 .user-scores {
   margin: auto;
+}
+
+/* Scores/profile Scores */
+.scores {
+  margin: auto;
+  text-align: center;
 }
 
 .user-scores div {
@@ -152,12 +192,23 @@ label{
   background-repeat: no-repeat;
   border-color: transparent !important;
   color: white;
+  margin: 5% 2%;
+}
+
+.user-scores-pending {
+  background: url(./public/images/beaut.jpg);
+  background-repeat: no-repeat;
+  border-color: transparent !important;
+  color: black;
 }
 
 /* Login */
 .login-page {
-  width: 30%;
-  margin: 10% auto;;
+  background-color: #EFE0EE;
+  width: 40%;
+  padding: 4% 8%;
+  margin: 10% auto;
+  border-radius: 40px;
 }
 
 .login-page h2 {
@@ -165,15 +216,21 @@ label{
   text-align: center;
 }
 
+.btn-primary {
+  background-color: rgb(141, 185, 185) !important;
+  border-color: transparent !important;
+}
+
 /* Signup  */
 .signup-page {
 width: 100%;
 height: 100%;
-margin: 4% auto;
+margin: 10% auto;
 }
 
 .signup-form {
-  background-color: #32afa9;
+  border-radius: 40px;
+  background-color: rgb(149, 130, 148);
   width: 40%;
   padding: 5%;
   margin: auto;

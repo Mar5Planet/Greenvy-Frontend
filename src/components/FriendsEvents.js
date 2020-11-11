@@ -27,11 +27,24 @@ function FriendsEvents(props) {
         
     }
 
+    const checkFriend = () => {
+        if (findFriendsEvents().length === 0) {
+            return false
+        } else {
+            return true
+        }
+    }
+
     return (
+        <>
+        {checkFriend()?
         <div className="friends-events">
             <h1>My Community's Activity</h1>
             {findFriendsEvents()}
-        </div>
+        </div> : ''
+
+        }
+        </>
         
     )
 }

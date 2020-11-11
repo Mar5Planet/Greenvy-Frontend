@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Button from 'react-bootstrap/Button';
-
+import { Menu, Dropdown } from 'antd';
+import { Link } from 'react-router-dom';
 function Profile(props) {
     const [userFollow, setUserFollow] = useState('')
     const findUser= () => {
@@ -11,14 +12,46 @@ function Profile(props) {
 
     const findFollowing = () => {
         return props.userJoins.filter(userJoin => userJoin.follower_id === parseInt(props.match.params.id))
-
-    
     }
-
     const findFollowers = () => {
         return props.userJoins.filter(userJoin => userJoin.followed_id === parseInt(props.match.params.id))
 
     }
+
+    const renderFollowing = () => {
+        let userFollowingJoins = findFollowing()
+        let foundFollowing = []
+        for (let i = 0; i < userFollowingJoins.length; i++) {
+            let users = props.users.find(user => user.id === userFollowingJoins[i].followed_id)
+            foundFollowing.push(users)
+            
+        }
+    return foundFollowing.map(user => <Menu.Item><Link to={`/profile/${user.id}`}><img className="dropdown-img" src={user.profile_img} alt='user-img' /> {user.username}</Link></Menu.Item>)
+    }
+
+    const renderFollowers = () => {
+        let userFollowingJoins = findFollowers()
+        let foundFollowers = []
+        for (let i = 0; i < userFollowingJoins.length; i++) {
+            let users = props.users.find(user => user.id === userFollowingJoins[i].follower_id)
+            foundFollowers.push(users)
+            
+        }
+    return foundFollowers.map(user => <Menu.Item><Link to={`/profile/${user.id}`}><img className="dropdown-img" src={user.profile_img} alt='user-img' /> {user.username}</Link></Menu.Item>)
+    }
+
+    const menu2 = (
+        <Menu>
+            {renderFollowers()}
+        </Menu>
+    )
+
+
+    const menu = (
+        <Menu>
+            {renderFollowing()}
+        </Menu>
+    )
     
     const userFollowing = () => {
         let check = findFollowers().filter(userJoin => userJoin.follower_id === props.user.id)
@@ -65,7 +98,7 @@ function Profile(props) {
     findUser()
     SettingUserFollow()}, []);
     
-
+    renderFollowing()
     return (
             <div className="user-profile">
             <h1> User Profile </h1>
@@ -78,8 +111,8 @@ function Profile(props) {
             <div className="user-scores-greenvy"><h1>{calculateGreenvy()}</h1><p>Greenvy Score</p></div>
            </div>
             <div className="followers-following">
-            <h4>following: {findFollowing().length}</h4>
-            <h4>Followers: {findFollowers().length}</h4>
+            <Dropdown overlay={menu}><a className="ant-dropdown-link" onClick={e => e.preventDefault()}>following: {findFollowing().length}</a></Dropdown>
+            <Dropdown overlay={menu2}><a className="ant-dropdown-link" onClick={e => e.preventDefault()}>Followers: {findFollowers().length}</a></Dropdown>
             </div>
          </div>
     )

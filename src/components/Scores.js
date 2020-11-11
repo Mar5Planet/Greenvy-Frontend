@@ -45,8 +45,7 @@ function Scores(props) {
 
     return(
         <div className="scores">
-            <Card style={{ width: '18rem', display: 'inline-block' }}>
-                <Card.Img variant="top" style={{width: '100%', height: '250px'}} src={footPrintImg()} />
+            <Card className='user-scores-footprint' style={{ width: '18rem', display: 'inline-block' }}>
                 <Card.Body>
                 <Card.Title>Carbon Footprint</Card.Title>
                 <Card.Title>{props.user.footprint}</Card.Title>
@@ -56,8 +55,7 @@ function Scores(props) {
                 </Card.Body>
             </Card>
 
-            <Card style={{ width: '18rem', display: 'inline-block' }}>
-                <Card.Img variant="top" style={{width: '100%', height: '250px'}} src={greenvyImg} />
+            <Card className="user-scores-greenvy" style={{ width: '18rem', display: 'inline-block' }}>
                 <Card.Body>
                 <Card.Title>Greenvy Score</Card.Title>
                 <Card.Title>{greenvyScore()}</Card.Title>
@@ -67,8 +65,7 @@ function Scores(props) {
                 </Card.Body>
             </Card>
 
-            <Card style={{ width: '18rem', display: 'inline-block' }}>
-                <Card.Img variant="top" style={{width: '100%', height: '250px'}} src={pendingImg} />
+            <Card className="user-scores-pending" style={{ width: '18rem', display: 'inline-block' }}>
                 <Card.Body>
                 <Card.Title>Pending Points</Card.Title>
                 <Card.Title>{pendingPoints()}</Card.Title>
