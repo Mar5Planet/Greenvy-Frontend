@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { Grid, Row, Col} from 'react-bootstrap'
 
 function DashboardEvents(props) {
     const [userEvents, setUserEvents] = useState([])
@@ -19,11 +20,11 @@ function DashboardEvents(props) {
     }
 
     const renderIncompleteEvents = () => {
-    return incompleteEvents.map(event => <Link to={`/events/${event.event.id}`}><div><h2>{event.event.title}</h2><p>{event.event.greenvy_score} Points</p></div></Link>)
+    return incompleteEvents.map(event => <Link to={`/events/${event.event.id}`}><div className="dashboard-events"><img src={event.event.image_url} alt="event-img" /><h4>{event.event.title}</h4><p>{event.event.greenvy_score} Points</p></div></Link>)
     }
 
     const rendercompleteEvents = () => {
-        return completeEvents.map(event => <Link to={`/events/${event.event.id}`}><div><h2>{event.event.title}</h2><p>{event.event.greenvy_score} Points</p></div></Link>)
+        return completeEvents.map(event => <Link to={`/events/${event.event.id}`}><div className="dashboard-events"><img src={event.event.image_url} alt="event-img" /><h4>{event.event.title}</h4><p>{event.event.greenvy_score} Points</p></div></Link>)
      }
 
     const checkUpcomingEvents = () => {
@@ -44,22 +45,30 @@ function DashboardEvents(props) {
     setEventType()} , [incompleteEvents]);
 
     return(
-        <>
+        <Row lg='2'>
         {checkUpcomingEvents()? 
-        <div className="upcoming-events">
-            <h1>Upcoming Events</h1>
-            {renderIncompleteEvents()}
-        </div> : ''
+       
+        <Col>
+            <div style={{borderColor: "rgb(226, 218, 170)"}} className="dash-events-col">
+                <div className="dash-events-bg"></div>
+                <h2>Upcoming Events</h2>
+                {renderIncompleteEvents()}
+
+            </div>
+        </Col>: ''
         }
 
         {checkCompletedEvents()?
-        <div className="completed-events">
-            <h1> Completed Events </h1>
-            {rendercompleteEvents()}
-        </div> : ''
+        <Col>
+            <div className="dash-events-col">
+                <div className="dash-events-bg"></div>
+                <h2> Completed Events </h2>
+                {rendercompleteEvents()} 
+            </div>
+        </Col>: ''
         }
         
-        </>
+        </Row>
     )
 }
 

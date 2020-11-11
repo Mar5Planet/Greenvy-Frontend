@@ -71,18 +71,18 @@ class Event extends React.Component {
           {console.log(this.state.eventComments)}
           {this.state.event? 
           <div className="event-page">
-          <img src={this.state.event[0].image_url} alt="event-img" />
+          <img className="event-img" src={this.state.event[0].image_url} alt="event-img" />
           <h1>{this.state.event[0].title}</h1>
           <h3>{this.state.event[0].location}</h3>
-          <div style={{width: '20%', border: '3px solid black'}} className="event-organizer">
-              <h3>Organizer:</h3>
+          <label></label>
+          <p>{this.state.event[0].description}</p>
+          <div className="event-organizer">
+              <h3>Organized by</h3>
               <Link to={`/profile/${this.state.organizer.id}`}>
               <img style={{width: '20%'}} src={this.state.organizer.profile_img} alt="organizer-img" />
               <h4>{this.state.organizer.username}</h4>
               </Link>
           </div>
-          <label></label>
-          <p>{this.state.event[0].description}</p>
           <div className="comments">
               <h1>Comments</h1>
               <CommentForm createComment={this.props.createComment} event={this.state.event[0]} user={this.props.user}/>

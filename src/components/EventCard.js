@@ -47,20 +47,22 @@ function EventCard(props) {
 
     return(
         <Card style={{ width: '18rem', display: 'inline-block' }}>
-            <Card.Img variant="top" style={{width: '100%', height: '250px'}} src={props.event.image_url} />
+            <Card.Img variant="top" style={{width: '100%', height: '230px'}} src={props.event.image_url} />
             <Card.Body>
-            <Card.Title>{props.event.title}</Card.Title>
-            <Card.Title>Greenvy Score: {props.event.greenvy_score}</Card.Title>
-                <Card.Text>
-                    {props.event.description}
-                </Card.Text>
-                {userCompleted()? <h1>Event Completed</h1> : <Button onClick={checkUserEvent()? leaveEvent : joinEvent} variant="dark">{
+            <Card.Title style={{color: "#87DCC0"}}><b>{props.event.title}</b></Card.Title>
+            <p>Greenvy Score: <b>{props.event.greenvy_score}</b></p>
+
+            <div className="event-card-btn">
+                {userCompleted()? <p style={{display: 'inline-block', marginRight: '4%'}}><b>Completed</b></p> : <Button onClick={checkUserEvent()? leaveEvent : joinEvent} variant="dark">{
                     checkUserEvent()? 'Leave Event' : 'Join Event'
                 }</Button>
                 }
+
                 <Link to={`/events/${props.event.id}`} >
                 <Button variant="info">Read More</Button>
                 </Link>
+
+            </div>
              </Card.Body>
         </Card>
     )

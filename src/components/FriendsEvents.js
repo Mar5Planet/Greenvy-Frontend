@@ -1,5 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faSpa } from '@fortawesome/free-solid-svg-icons'
+
 
 function FriendsEvents(props) {
 
@@ -37,13 +40,14 @@ function FriendsEvents(props) {
 
     return (
         <>
-        {checkFriend()?
         <div className="friends-events">
-            <h1>My Community's Activity</h1>
+            <h2>My Community's Activity</h2>
+        {checkFriend()?
+        <>
             {findFriendsEvents()}
-        </div> : ''
-
-        }
+        </>
+        : <>{'No recent community activity found.'} <FontAwesomeIcon style={{width: "100px", display: 'block', margin: '5% auto', color: "#E1E0D3"}} icon={faSpa} /></>}
+    </div> 
         </>
         
     )

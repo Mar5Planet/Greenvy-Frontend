@@ -102,12 +102,12 @@ function Profile(props) {
     return (
             <div className="user-profile">
             <h1> User Profile </h1>
-            <h2> {findUser().username}</h2>
             <img src={findUser().profile_img} alt="user-img"/>
+            <h2> {findUser().username}</h2>
             {userCheck()? null : <Button onClick={userFollowing()? removeFollower : createFollower }>
            {userFollowing()? 'Unfollow' : 'Follow'} </Button> }
            <div className="user-scores">
-            <div className="user-scores-footprint"><h1>{findUser().footprint}</h1><p>Carbon Footprint</p></div>
+            <div className="user-scores-footprint"><h1>{findUser().footprint}</h1><p>Footprint</p></div>
             <div className="user-scores-greenvy"><h1>{calculateGreenvy()}</h1><p>Greenvy Score</p></div>
            </div>
             <div className="followers-following">

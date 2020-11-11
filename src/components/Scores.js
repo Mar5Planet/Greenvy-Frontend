@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import Card from 'react-bootstrap/Card'
-
+import { Grid, Row, Col} from 'react-bootstrap'
 
 function Scores(props) {
     const [pendingEvents, setPendingEvents] = useState([])
@@ -10,16 +10,6 @@ function Scores(props) {
        let userEvents = props.userEvents.filter(userEvent => userEvent.user_id === props.user.id)
        setPendingEvents(userEvents.filter(userEvent => userEvent.status === "incomplete"))
        setCompleteEvents(userEvents.filter(userEvent => userEvent.status === "complete"))
-    }
-
-
-    const footPrintImg = () => {
-        if (props.user.footprint <= 100) {
-            return 'https://images.pexels.com/photos/931007/pexels-photo-931007.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940';
-        }
-        else {
-            return 'https://images.pexels.com/photos/929385/pexels-photo-929385.jpeg?auto=compress&cs=tinysrgb&h=650&w=940';
-        }
     }
 
     const pendingPoints = () => {
@@ -45,35 +35,45 @@ function Scores(props) {
 
     return(
         <div className="scores">
-            <Card className='user-scores-footprint' style={{ width: '18rem', display: 'inline-block' }}>
+            <Row lg="3">
+                <Col>
+            <Card className='scores-footprint' style={{ width: '18rem', display: 'inline-block' }}>
                 <Card.Body>
                 <Card.Title>Carbon Footprint</Card.Title>
-                <Card.Title>{props.user.footprint}</Card.Title>
+                <Card.Title><b>{props.user.footprint}</b></Card.Title>
                     <Card.Text>
-                    Your footprint is {props.user.footprint} lbs Co2/day. The average footprint is 97.
+                    Your footprint is {props.user.footprint} lbs Co2/day. The average is 97.
                     </Card.Text>
                 </Card.Body>
             </Card>
-
-            <Card className="user-scores-greenvy" style={{ width: '18rem', display: 'inline-block' }}>
+                </Col>
+                <Col>
+            <Card className="scores-greenvy" style={{ width: '18rem', display: 'inline-block' }}>
                 <Card.Body>
                 <Card.Title>Greenvy Score</Card.Title>
-                <Card.Title>{greenvyScore()}</Card.Title>
+                <Card.Title><b>{greenvyScore()}</b></Card.Title>
                     <Card.Text>
                      Community events engagement score.
                     </Card.Text>
                 </Card.Body>
             </Card>
+                
+                </Col>
 
-            <Card className="user-scores-pending" style={{ width: '18rem', display: 'inline-block' }}>
+                <Col>
+            <Card className="scores-pending" style={{ width: '18rem', display: 'inline-block' }}>
                 <Card.Body>
                 <Card.Title>Pending Points</Card.Title>
-                <Card.Title>{pendingPoints()}</Card.Title>
+                <Card.Title><b>{pendingPoints()}</b></Card.Title>
                     <Card.Text>
                     Pendind points to be approved by event organizer.
                     </Card.Text>
                 </Card.Body>
             </Card>
+                </Col>
+            </Row>
+
+
 
         </div>
     )

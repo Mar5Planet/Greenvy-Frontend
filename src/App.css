@@ -5,6 +5,12 @@
 * {
   font-family: 'Karla', sans-serif;
 }
+
+a:hover {
+  text-decoration: underline !important;
+  text-decoration-color: rgb(151, 135, 125) !important;
+}
+
 .title{
   text-align: left;
   font-weight: bold;
@@ -101,7 +107,16 @@ label{
 
 /* Event */
 .comment {
-  margin:4% 0;
+  margin:5% 0;
+}
+
+.comments {
+  text-align: left;
+  margin: auto 20%;
+}
+
+.comments form {
+  margin-bottom: 8%;
 }
 
 .comment img {
@@ -116,8 +131,146 @@ label{
   display: inline-block;
 }
 
+.event-page .event-img {
+  width: 80%;
+  height: 80%;
+  
+  
+}
+
+.event-page h1 {
+  font-family: 'Gloria Hallelujah', cursive;
+  margin: 4% auto;
+}
+
+.event-page {
+  margin: 4% auto;
+  text-align: center;
+}
+
+.event-organizer {
+  width: 40%;
+  border: 3px solid rgb(212, 189, 189);
+  background-color: rgb(212, 189, 189);
+  border-radius: 20px;
+  margin: 4% auto;
+  padding: 2%;
+}
+
+.event-organizer h3 {
+  font-family: 'Gloria Hallelujah', cursive;
+}
+
+.event-organizer img {
+  width: 60px !important;
+  height: 60px !important;
+  border-radius: 100%;
+}
+
+/* Events page */
+.event-gif {
+  height: 400px;
+  background: url(./public/videos/earth3.gif);
+  background-size: cover;
+}
+
+.event-card-btn {
+ padding:5% 0;
+}
+
+.event-card-btn .btn-info {
+  margin-left: 4%;
+}
+
+.event-container h1 {
+  font-family: 'Gloria Hallelujah', cursive;
+  margin: 5% auto 8%;
+  text-align: center;
+}
+
+.event-container .card {
+  border-radius: 34px !important;
+
+}
+
+.event-container .card:hover {
+  transform: scale(1.2);
+  z-index: 100000;
+}
+
+.event-container .card-img-top {
+  border-radius: 30px 30px 0 0 !important;
+}
+
+.event-container .row {
+  margin: 0 5%;
+}
+
+.event-form-btn {
+  margin: 4% 4% 0;
+  position: absolute;
+  right: 10%;
+ 
+}
+
+
+/* Create Form */
+.create-form {
+  position: fixed;
+  z-index: 100000;
+  background-color: #D3D4E1;
+  width: 50%;
+  padding: 6%;
+  left: 25%;
+  top: 90px;
+  border-radius: 30px;
+}
 
 /* dashboard  */
+.scores-footprint {
+  padding: 4% 1%;
+  -moz-box-shadow:    inset 0 0 10px rgb(194, 163, 163);
+  -webkit-box-shadow: inset 0 0 10px rgb(195, 173, 173);
+  box-shadow:         inset 0 0 10px rgb(209, 197, 197);
+  background-color: rgb(218, 224, 193) !important;
+  background-size: cover;
+  border-color: transparent !important;
+  border-radius: 20px !important;
+  color: black;
+  margin: 2% 4%;
+}
+
+.scores-greenvy {
+  padding: 4% 1%;
+  -moz-box-shadow:    inset 0 0 10px rgb(194, 163, 163);
+  -webkit-box-shadow: inset 0 0 10px rgb(195, 173, 173);
+  box-shadow:         inset 0 0 10px rgb(209, 197, 197);
+  background-color: rgb(180, 218, 230) !important;
+  background-size: cover;
+  border-color: transparent !important;
+  border-radius: 20px !important;
+  color: black;
+  margin: 2% 4%;
+}
+
+.scores-pending {
+  padding: 4% 1%;
+  -moz-box-shadow:    inset 0 0 10px rgb(194, 163, 163);
+  -webkit-box-shadow: inset 0 0 10px rgb(195, 173, 173);
+  box-shadow:         inset 0 0 10px rgb(209, 197, 197);
+  background-color: rgb(235, 214, 238)!important;
+  background-size: cover;
+  border-color: transparent !important;
+  border-radius: 20px !important;
+  color: black;
+  margin: 2% 4%;
+}
+
+.scores .row {
+  width: 80% !important;
+  margin: 5% auto 8%;
+}
+
 .dashboard {
 margin: 4% 4%;
 text-align: center;
@@ -144,7 +297,144 @@ text-align: center;
   display: inline-block;
 }
 
+.dash-events-bg {
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  width: 100%;
+  opacity: 8%;
+  background: url('https://www.wowpatterns.com/assets/files/resource_images/diagonal-lines-vector-pattern.jpg');
+}
+
+.dash-events-col {
+  position: relative;
+  z-index: 1;
+  border: 10px solid rgba(167, 202, 182, 0.596);  
+  border-radius: 20px;
+  padding: 10% 2%;
+  margin: 4%;
+}
+
+.dashboard h2 {
+  margin-bottom: 10%;
+  font-family: 'Gloria Hallelujah', cursive !important;
+}
+
+.dashboard-events img {
+  width: 40px;
+  height: 40px;
+  display: inline-block;
+  border-radius: 100%;
+}
+
+.dashboard-events h4 {
+  margin: 0 2%;
+  display: inline-block;
+}
+
+.dashboard-events p {
+  display: inline-block;
+}
+
+.dashboard-row {
+  margin: 10% 0;
+}
+
+.dashboard-events p {
+  text-decoration: none;
+  color: rgb(109, 121, 231);
+}
+
+
+/* Dash Approve */
+.circle-wrapper {
+  width: 40px;
+  height: 40px;
+  display: inline-block;
+  margin: 0 4%;
+
+}
+
+.circle-wrapper:hover {
+  cursor: pointer;
+}
+
+.success {
+  background-color: rgb(130, 172, 127);
+  border: 2.5px dashed rgb(130, 172, 127);
+}
+
+.circle {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  padding: 2.5px;
+  background-clip: content-box;
+  animation: spin 10s linear infinite;
+  margin-top: 40%;
+  color: white;
+}
+
+.circle-wrapper:active .circle {
+  animation: spin 2s linear infinite;
+}
+
+.dash-point-approve h5 {
+  display: inline-block;
+}
+
+.dash-point-approve img {
+  margin-right: 2%;
+  border-radius: 100%;
+}
+
+
+
+@keyframes spin { 
+  100% { 
+    transform: rotateZ(360deg);
+  }
+}
+
+
+
+
 /* profile  */
+.user-profile {
+  text-align: center;
+  background-color: rgba(168, 216, 216, 0.575);
+  border-radius: 40px;
+  width: 60%;
+  margin: 12% auto;
+  padding: 5% 5%;
+
+}
+
+.user-profile .btn {
+  margin-bottom: 4%;
+}
+
+.user-profile h1 {
+  margin-bottom: 10%;
+  font-family: 'Gloria Hallelujah', cursive !important;
+}
+
+.ant-dropdown-link {
+  font-size: 1.5rem !important;
+  margin-right: 4%;
+  color: black
+}
+
+.ant-dropdown-link:hover {
+  text-decoration: none;
+  color: rgb(207, 171, 207);
+}
+
 .dropdown-img {
   width: 20px;
   height: 20px;
@@ -156,9 +446,18 @@ text-align: center;
   width: 100px;
   height: 100px;
   border-radius: 100%;
-  display: block;
+  display: inline-block;
+  margin-bottom: 2%;
 }
 
+.user-profile h2 {
+  margin-bottom: 6%;
+  font-weight: bold;
+}
+
+.followers-following {
+  margin-top: 6%;
+}
 .user-scores {
   margin: auto;
 }
@@ -181,14 +480,14 @@ text-align: center;
 }
 
 .user-scores-footprint {
-  background: url('https://image.freepik.com/free-photo/sunny-defocused-green-nature-background-abstract-bokeh-effect-es-element-your-design_211682-265.jpg');
+  background-color: #F5E9DD;
   background-repeat: no-repeat;
   border-color: transparent !important;
   color: black;
 }
 
 .user-scores-greenvy {
-  background: url('https://images.unsplash.com/photo-1568832359672-e36cf5d74f54?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80');
+  background-color: #BDC1AC;
   background-repeat: no-repeat;
   border-color: transparent !important;
   color: white;

@@ -9,7 +9,7 @@ function NavgBar(props) {
     return(
         <Navbar style={{backgroundColor: "#d3d4e1", padding: "0.5% 2%", display: "sticky"}} expand="lg">
   <Navbar.Brand>
-    <img style={{width: "65%"}} src={GreenvyLogo} alt="greenvy-img"/>
+    <img style={{width: "55%"}} src={GreenvyLogo} alt="greenvy-img"/>
   </Navbar.Brand>
     
       

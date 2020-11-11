@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import OrganizeEvent from '../components/OrganizedEvent'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faSpa } from '@fortawesome/free-solid-svg-icons'
 
 function OrganizeEventContainer(props) {
     const [events, setEvents] = useState('')
@@ -29,11 +31,14 @@ function OrganizeEventContainer(props) {
 
     return (
         <>
+        <div className="dash-approve-container">
+            <h2> Greenvy points to be approved</h2>
         {checkEvents()?
         <>
-        <h1> Greenvy points to be approved</h1>
         {renderEvents()}
-        </> : ''}
+        </>
+        : <>{'No pending event requests.  '} <FontAwesomeIcon style={{width: "100px", display: 'block', margin: '5% auto', color: "#E1E0D3"}} icon={faSpa} /> </>}
+        </div> 
         </>
     )
 }
