@@ -7,7 +7,7 @@ import Button from 'react-bootstrap/Button'
 
 function NavgBar(props) {
     return(
-        <Navbar style={{backgroundColor: "#d3d4e1", padding: "0.5% 2%", display: "sticky"}} expand="lg">
+        <Navbar style={{backgroundColor: "#d3d4e1", padding: "0.5% 2%", position: "fixed", width: '100%', zIndex: '100000', top: '0'}} expand="lg">
   <Navbar.Brand>
     <img style={{width: "55%"}} src={GreenvyLogo} alt="greenvy-img"/>
   </Navbar.Brand>
