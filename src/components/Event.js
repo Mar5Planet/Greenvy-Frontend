@@ -75,7 +75,7 @@ class Event extends React.Component {
           <h1>{this.state.event[0].title}</h1>
           <h3>{this.state.event[0].location}</h3>
           <label></label>
-          <p>{this.state.event[0].description}</p>
+          <p className="event-desc">{this.state.event[0].description}</p>
           <div className="event-organizer">
               <h3>Organized by</h3>
               <Link to={`/profile/${this.state.organizer.id}`}>

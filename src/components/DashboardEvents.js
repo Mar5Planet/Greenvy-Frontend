@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Grid, Row, Col} from 'react-bootstrap'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faSpa } from '@fortawesome/free-solid-svg-icons'
+
 
 function DashboardEvents(props) {
     const [userEvents, setUserEvents] = useState([])
@@ -46,27 +49,23 @@ function DashboardEvents(props) {
 
     return(
         <Row lg='2'>
-        {checkUpcomingEvents()? 
+        
        
         <Col>
             <div style={{borderColor: "rgb(226, 218, 170)"}} className="dash-events-col">
                 <div className="dash-events-bg"></div>
                 <h2>Upcoming Events</h2>
-                {renderIncompleteEvents()}
-
+                {checkUpcomingEvents()? <> {renderIncompleteEvents()} </> : <>{'No upcoming events.  '} <FontAwesomeIcon style={{width: "100px", display: 'block', margin: '5% auto', color: "#E1E0D3"}} icon={faSpa} /> </>}  
             </div>
-        </Col>: ''
-        }
-
-        {checkCompletedEvents()?
+        </Col>
+        
         <Col>
             <div className="dash-events-col">
                 <div className="dash-events-bg"></div>
                 <h2> Completed Events </h2>
-                {rendercompleteEvents()} 
+                {checkCompletedEvents()? <>{rendercompleteEvents()}</> : <>{'No completed events.  '} <FontAwesomeIcon style={{width: "100px", display: 'block', margin: '5% auto', color: "#E1E0D3"}} icon={faSpa} /> </>}  
             </div>
-        </Col>: ''
-        }
+        </Col>
         
         </Row>
     )
