@@ -35,6 +35,6 @@ class UserJoinsController < ApplicationController
 
 
       def userJoins_params
-        params.require(:userJoin).permit(:follower_id, :followed_id)
+        params.require(:user_join).permit(:follower_id, :followed_id)
       end
 end
